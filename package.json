@@ -1,23 +1,14 @@
 {
-  "name": "es6-wiki",
-  "version": "1.0.0",
-  "description": "慕课网ES6 Wiki",
-  "main": "index.js",
-  "scripts": {
-    "dev": "webpack-dev-server",
-    "build":"webpack --mode development"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fex-teaching/ES6-Wiki.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "html-webpack-plugin": "^3.2.0",
+    "lerna": "^3.22.1",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",
     "webpack-dev-server": "^3.7.1"
@@ -25,9 +16,5 @@
   "dependencies": {
     "@babel/core": "^7.4.5",
     "babel-loader": "^8.0.6"
-  },
-  "bugs": {
-    "url": "https://github.com/fex-teaching/ES6-Wiki/issues"
-  },
-  "homepage": "https://github.com/fex-teaching/ES6-Wiki#readme"
+  }
 }
