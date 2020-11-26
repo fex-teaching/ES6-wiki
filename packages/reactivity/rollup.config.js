@@ -6,7 +6,7 @@ export default {
   output: {
     format: "umd", // 模块化类型
     file: "dist/umd/reactivity.js",
-    name: "Vue", // 打包后的全局变量的名字
+    name: "Reactivity", // 打包后的全局变量的名字
     sourcemap: true,
   },
   plugins: [

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:dev": "rollup -c",
-    "serve": "cross-env ENV=development rollup -c -w"
+    "dev": "cross-env ENV=development rollup -c -w",
+    "build": "rollup -c"
   },
   "keywords": [],
   "author": "",
