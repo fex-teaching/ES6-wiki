@@ -12,7 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.12.9",
-    "@vue/reactivity": "^3.0.2",
     "rollup": "^2.33.3"
   },
   "devDependencies": {

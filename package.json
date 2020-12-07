@@ -4,6 +4,11 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "dev": "lerna run --parallel dev",
+    "build": "lerna run build",
+    "bootstrap": "lerna bootstrap"
+  },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",
