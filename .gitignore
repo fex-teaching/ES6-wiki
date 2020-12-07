@@ -3,6 +3,7 @@ node_modules
 *.log
 *.zip
 */dist
+dist
 docs/.vuepress/dist
 explorations
 TODOs.md
