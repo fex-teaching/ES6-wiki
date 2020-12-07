@@ -19,3 +19,8 @@
 import content from './content.md';
 console.log('content', content);
 
+import text from 'raw-loader!./file.txt';
+console.log('text', text);
+
+
+

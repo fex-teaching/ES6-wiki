@@ -6,3 +6,6 @@ export {
   b,
 }
 
+const path = require('path');
+console.log(path.join(__dirname, '/aaa'))
+console.log(path.resolve(__dirname, 'aaa/bbb'))
