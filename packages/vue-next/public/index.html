@@ -6,14 +6,27 @@
   <title>Document</title>
 </head>
 <body>
-  sss
   <div id="app"></div>
+
+  <!-- vue的reactivity模块，测试时可以打开 -->
   <script src="./vue.reactivity.js"></script>
+
   <!-- <script src="/dist/umd/reactivity.js"></script> -->
   <script>
-    const { reactive } = VueReactivity;
+    const { reactive, effect, ref, computed } = VueReactivity;
     console.log('Reactivity', reactive)
-    // reactive();
+
+    const proxy = reactive({
+      name: 'ES6 Wiki',
+    })
+
+    effect(() => {
+      document.getElementById('app').innerHTML = proxy.name;
+    })
+
+    setTimeout(() => {
+      proxy.name = 'imooc ES6 Wiki 实战'
+    }, 2000)
   </script>
 </body>
 </html>
