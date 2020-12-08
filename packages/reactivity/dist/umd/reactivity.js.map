@@ -1,1 +1,0 @@
-{"version":3,"file":"reactivity.js","sources":["../../src/reactive.js"],"sourcesContent":["export function reactive(target) {\n  console.log('target:', target)\n}\n"],"names":["reactive","target","console","log"],"mappings":";;;;;;EAAO,SAASA,QAAT,CAAkBC,MAAlB,EAA0B;EAC/BC,EAAAA,OAAO,CAACC,GAAR,CAAY,SAAZ,EAAuBF,MAAvB;EACD;;;;;;;;;;"}

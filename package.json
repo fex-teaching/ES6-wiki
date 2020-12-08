@@ -8,18 +8,5 @@
     "dev": "lerna run --parallel dev",
     "build": "lerna run build",
     "bootstrap": "lerna bootstrap"
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@babel/plugin-proposal-decorators": "^7.4.4",
-    "html-webpack-plugin": "^3.2.0",
-    "lerna": "^3.22.1",
-    "webpack": "^4.34.0",
-    "webpack-cli": "^3.3.4",
-    "webpack-dev-server": "^3.7.1"
-  },
-  "dependencies": {
-    "@babel/core": "^7.4.5",
-    "babel-loader": "^8.0.6"
   }
 }

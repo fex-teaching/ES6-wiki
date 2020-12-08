@@ -1763,18 +1763,6 @@
   resolved "https://r.cnpmjs.org/@types/unist/download/@types/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha1-nAiGeYdvN061mD8VDUeHqm+zLX4=
 
-"@vue/reactivity@^3.0.2":
-  version "3.0.4"
-  resolved "https://r.cnpmjs.org/@vue/reactivity/download/@vue/reactivity-3.0.4.tgz#b6599dd8271a745960a03f05744ccf7991ba5d8d"
-  integrity sha1-tlmd2CcadFlgoD8FdEzPeZG6XY0=
-  dependencies:
-    "@vue/shared" "3.0.4"
-
-"@vue/shared@3.0.4":
-  version "3.0.4"
-  resolved "https://r.cnpmjs.org/@vue/shared/download/@vue/shared-3.0.4.tgz#6dc50f593bdfdeaa6183d1dbc15e2d45e7c6b8b3"
-  integrity sha1-bcUPWTvf3qphg9HbwV4tRefGuLM=
-
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://r.cnpmjs.org/@webassemblyjs/ast/download/@webassemblyjs/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
