@@ -8,8 +8,8 @@ const set = createSetter()
 export const mutableHandlers = {
   get,
   set,
-  deleteProperty,
-  has,
-  ownKeys
+  // deleteProperty,
+  // has,
+  // ownKeys
 }
 

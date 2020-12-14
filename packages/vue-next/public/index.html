@@ -9,9 +9,11 @@
   <div id="app"></div>
 
   <!-- vue的reactivity模块，测试时可以打开 -->
-  <script src="./vue.reactivity.js"></script>
+  <!-- <script src="./vue.reactivity.js"></script> -->
 
-  <!-- <script src="/dist/umd/reactivity.js"></script> -->
+	<!-- 我们自己实现的 reactivity 模块 -->
+  <script src="/dist/umd/reactivity.js"></script>
+
   <script>
     const { reactive, effect, ref, computed } = VueReactivity;
     console.log('Reactivity', reactive)
