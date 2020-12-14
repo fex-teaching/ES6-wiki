@@ -15,20 +15,29 @@
   <script src="/dist/umd/reactivity.js"></script>
 
   <script>
-    const { reactive, effect, ref, computed } = VueReactivity;
-    console.log('Reactivity', reactive)
+    const { reactive } = VueReactivity;
+    // const proxy = reactive({
+    //   name: 'ES6 Wiki',
+    // })
+    // document.getElementById('app').innerHTML = proxy.name;
+    // proxy.name = 'imooc ES6 wiki';
+    // console.log('proxy.name');
 
-    const proxy = reactive({
-      name: 'ES6 Wiki',
-    })
+    var proxy = reactive({a:1, b:2});
+    proxy = reactive({a:1, b:2});
+    console.log(proxy.a)
+    // 或者
+    var proxy = reactive(proxy);
+    proxy = reactive(proxy);
+    console.log(proxy.a)
 
-    effect(() => {
-      document.getElementById('app').innerHTML = proxy.name;
-    })
+    // effect(() => {
+    //   document.getElementById('app').innerHTML = proxy.name;
+    // })
 
-    setTimeout(() => {
-      proxy.name = 'imooc ES6 Wiki 实战'
-    }, 2000)
+    // setTimeout(() => {
+    //   proxy.name = 'imooc ES6 Wiki 实战'
+    // }, 2000)
   </script>
 </body>
 </html>

@@ -1,1 +1,1 @@
-console.log('000')
+export * from './reactivity-1/index';

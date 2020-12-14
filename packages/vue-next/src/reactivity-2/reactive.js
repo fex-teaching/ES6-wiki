@@ -1,4 +1,4 @@
-
+// import { mutableHandlers } from './'
 function reactive(target) {
   return createReactiveObject(target, mutableHandlers);
 }
