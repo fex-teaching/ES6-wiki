@@ -9,13 +9,14 @@
   <div id="app"></div>
 
   <!-- vue的reactivity模块，测试时可以打开 -->
-  <!-- <script src="./vue.reactivity.js"></script> -->
+  <script src="./vue.reactivity.js"></script>
 
 	<!-- 我们自己实现的 reactivity 模块 -->
-  <script src="/dist/umd/reactivity.js"></script>
+  <!-- <script src="/dist/umd/reactivity.js"></script> -->
 
   <script>
-    const { reactive } = VueReactivity;
+    const { reactive, effect } = VueReactivity;
+    // ---------------------ES6实战-Vue3响应式原理（1）----------------------
     // const proxy = reactive({
     //   name: 'ES6 Wiki',
     // })
@@ -23,21 +24,35 @@
     // proxy.name = 'imooc ES6 wiki';
     // console.log('proxy.name');
 
-    var proxy = reactive({a:1, b:2});
-    proxy = reactive({a:1, b:2});
-    console.log(proxy.a)
-    // 或者
-    var proxy = reactive(proxy);
-    proxy = reactive(proxy);
-    console.log(proxy.a)
-
-    // effect(() => {
-    //   document.getElementById('app').innerHTML = proxy.name;
-    // })
-
     // setTimeout(() => {
-    //   proxy.name = 'imooc ES6 Wiki 实战'
-    // }, 2000)
+    //   proxy.age = 18
+    // }, 1000)
+
+    // -------------------------------------------
+    // const proxy = reactive([1,2,3])
+    // proxy[1] = 100
+
+    // -------------------------------------------
+    // var proxy = reactive({a:1, b:2});
+    // proxy = reactive({a:1, b:2});
+    // console.log(proxy.a)
+    // // 或者
+    // var proxy = reactive(proxy);
+    // proxy = reactive(proxy);
+    // console.log(proxy.a)
+
+    // -------------------ES6实战-Vue3响应式原理（2）------------------------
+    const proxy = reactive({
+      name: 'ES6 Wiki',
+    })
+    // document.getElementById('app').innerHTML = proxy.name;
+    effect(() => {
+      document.getElementById('app').innerHTML = proxy.name;
+    })
+
+    setTimeout(() => {
+      proxy.name = 'imooc ES6 Wiki 实战'
+    }, 2000)
   </script>
 </body>
 </html>

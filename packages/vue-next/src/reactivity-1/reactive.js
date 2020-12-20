@@ -1,10 +1,11 @@
+import { isObject } from '../shared/index.js';
 import { mutableHandlers } from './baseHandlers';
 
 export function reactive(target) {
-  return createReactiveObject(target, true, mutableHandlers);
+  return createReactiveObject(target, mutableHandlers);
 }
 
-
+export const reactiveMap = new WeakMap();
 function createReactiveObject(target, baseHandlers) {
   if (!isObject(target)) {
     return target
