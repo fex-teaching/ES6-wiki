@@ -1,17 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div style="height: 800px"></div>
+    <div class="adx-wrap" ref="adxwrap">
+      <!-- <img v-if="show" src="./assets/logo.png"> -->
+      <Temp v-if="show" url="https://boxcdn.zuoyebang.cc/v1/zyb-srmp/0cbb3698/275f4280-a391-4b34-823c-52b095247205.png" />
+    </div>
+    <div style="height: 200px"></div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Temp from './components/Temp.vue'
 import axios from 'axios'
 import ajax from './utils/ajax'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Temp
   },
   setup() {
     axios.get('/api/news').then(res => {
@@ -25,6 +31,64 @@ export default {
       }
     })
   },
+  data() {
+    return {
+      show: false
+    }
+  },
+  watch: {
+    show(newValue, oldValue) {
+     if(newValue !== oldValue) {
+        this.visiable();
+      } 
+    }
+  },
+  mounted() {
+    const element = this.$refs.adxwrap;
+    console.log('是否在可视窗口', this.isElementInViewPort(element));
+
+    // window.onscroll = () => {
+    //   // console.log('scrollTop')
+    //   console.log('是否在可视窗口', this.isElementInViewPort(element));
+    // }
+
+    // this.visiable();
+    setTimeout(() => {
+      this.show = true;
+    }, 2000)
+  },
+  methods: {
+    visiable() {
+      const options = {
+        // root: document.querySelector('body'),
+        // rootMargin: '0px',
+        // threshold: 1.0,
+        threshold: [0],
+      }
+
+      this.observer = new IntersectionObserver((entries) => {
+        console.log('entries', entries)
+      }, options);
+
+      let target = this.$refs.adxwrap;
+      this.observer.observe(target);
+
+    },
+    isElementInViewPort(element) {
+      const viewHeight = window.innerHeight;  // 视口高度
+      const elementTop = element.offsetTop;   // 图片到顶部的高度
+
+      if (elementTop < viewHeight) return true;
+
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;  // 窗口滚动高度
+
+      if (elementTop < scrollTop + viewHeight) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
 }
 </script>
 
@@ -35,6 +99,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+* {
+  margin: 0;
+  padding: 0;
 }
 </style>
