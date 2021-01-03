@@ -1,12 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="clickHandler">按钮</button>
+  </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import axios from 'axios'
 import ajax from './utils/ajax'
+
+function throtthle(fn, delay = 2000) {
+  let init;
+  return function () {
+    const now = Date.now();
+    if (!init) {
+      init = now;
+      fn.call()
+    }
+    if (now > init + delay) {
+      init = undefined;
+    }
+  }
+}
+
 
 export default {
   name: 'App',
@@ -23,6 +41,11 @@ export default {
       success: function(res) {
         console.log('res', res)
       }
+    })
+  },
+  methods: {
+    clickHandler: throtthle(() =>{
+      console.log('0000')
     })
   },
 }
