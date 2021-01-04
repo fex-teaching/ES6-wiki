@@ -21,3 +21,5 @@ const produceNewsData = function () {
 
 // 请求该url，就可以返回newsList
 Mock.mock('/api/news', produceNewsData)
+
+Mock.mock('/api/user', produceNewsData)
