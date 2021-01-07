@@ -17,7 +17,26 @@
 import Temp from './components/Temp.vue'
 import axios from 'axios'
 import ajax from './utils/ajax'
+<<<<<<< HEAD
 import scrollDirective from './utils/scroll'
+=======
+import service from './utils/service';
+
+function throtthle(fn, delay = 2000) {
+  let init;
+  return function () {
+    const now = Date.now();
+    if (!init) {
+      init = now;
+      fn.call()
+    }
+    if (now > init + delay) {
+      init = undefined;
+    }
+  }
+}
+
+>>>>>>> 4372b6be973b327ce0a6eedee803a7654733f7d8
 
 export default {
   name: 'App',
@@ -68,56 +87,17 @@ export default {
     }
   },
   mounted() {
-    const element = this.$refs.adxwrap;
-    console.log('是否在可视窗口', this.isElementInViewPort(element));
-
-    // window.onscroll = () => {
-    //   // console.log('scrollTop')
-    //   console.log('是否在可视窗口', this.isElementInViewPort(element));
-    // }
-
-    // this.visiable();
-    setTimeout(() => {
-      this.show = true;
-    }, 2000)
+    this.getUser();
   },
   methods: {
-    focusHandler(p) {
-      console.log('focusHandler', p)
-    },
-    onScroll(p) {
-      console.log('onScroll', p)
-    },
-    visiable() {
-      const options = {
-        // root: document.querySelector('body'),
-        // rootMargin: '0px',
-        // threshold: 1.0,
-        threshold: [0],
+    async getUser() {
+      try {
+        const response = await service('/api/user');
+        console.log(response);
+      } catch (error) {
+        console.log(error)
       }
-
-      this.observer = new IntersectionObserver((entries) => {
-        console.log('entries', entries)
-      }, options);
-
-      let target = this.$refs.adxwrap;
-      this.observer.observe(target);
-
     },
-    isElementInViewPort(element) {
-      const viewHeight = window.innerHeight;  // 视口高度
-      const elementTop = element.offsetTop;   // 图片到顶部的高度
-
-      if (elementTop < viewHeight) return true;
-
-      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;  // 窗口滚动高度
-
-      if (elementTop < scrollTop + viewHeight) {
-        return true;
-      } else {
-        return false;
-      }
-    }
   }
 }
 </script>
