@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div v-demo>
+      ssss
+      <!-- <input v-focus="focusHandler"> -->
+    </div>
     <div style="height: 800px"></div>
     <div class="adx-wrap" ref="adxwrap">
       <!-- <img v-if="show" src="./assets/logo.png"> -->
@@ -13,6 +17,7 @@
 import Temp from './components/Temp.vue'
 import axios from 'axios'
 import ajax from './utils/ajax'
+import scrollDirective from './utils/scroll'
 
 export default {
   name: 'App',
@@ -43,6 +48,25 @@ export default {
       } 
     }
   },
+  directives: {
+    demo: {
+      inserted(){//这个名字是固定的
+          console.log("加油,中国！")
+      }
+    },
+    //指令的名字:指令的option的名字
+    scroll: scrollDirective,
+    focus: {
+      bind: function() {
+        console.log('bind====')
+      },
+      // 指令的定义
+      inserted: function (el) {
+        console.log(el)
+        el.focus()
+      }
+    }
+  },
   mounted() {
     const element = this.$refs.adxwrap;
     console.log('是否在可视窗口', this.isElementInViewPort(element));
@@ -58,6 +82,12 @@ export default {
     }, 2000)
   },
   methods: {
+    focusHandler(p) {
+      console.log('focusHandler', p)
+    },
+    onScroll(p) {
+      console.log('onScroll', p)
+    },
     visiable() {
       const options = {
         // root: document.querySelector('body'),
